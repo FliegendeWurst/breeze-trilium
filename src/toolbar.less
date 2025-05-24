@@ -6,10 +6,15 @@
     box-sizing: border-box;
     padding: 7px 8px !important;
     --hover-item-background-color: var(--breeze-toolbutton-hover-background-color);
+    position: absolute !important;
 }
 
 body:focus-within {
     --launcher-pane-background-color: var(--breeze-titlebar-active-background);
+}
+
+.spacer {
+    -webkit-app-region: drag;
 }
 
 #launcher-pane .spacer {
@@ -20,6 +25,11 @@ body:focus-within {
     &+.spacer {
         display: none !important;
     }
+}
+
+// HACK to find and grow the last spacer in the toolbar (it must be bigger to ensure the window can be dragged)
+#launcher-pane .bx-cog + .spacer {
+    flex-grow: 1 !important;
 }
 
 #launcher-pane .launcher-button,
@@ -137,6 +147,10 @@ body:focus-within {
         }
     }
 
+    .dropdown-menu {
+        transform: translate(-100%, 0) !important;
+    }
+
     .dropdown-submenu > .dropdown-menu {
         left: 0;
         transform: translateX(calc(-100% - 3px));
@@ -206,8 +220,8 @@ body:focus-within {
     }
 }
 
-.tooltip.bs-tooltip-right {
+.tooltip.bs-tooltip-auto[data-popper-placement="right"] {
     position: absolute;
-    left: calc(-4px + calc(-1 * var(--breeze-iconbutton-width))) !important;
+    left: calc(-6px + calc(-1 * var(--breeze-iconbutton-width))) !important;
     top: var(--breeze-iconbutton-width) !important;
 }

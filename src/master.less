@@ -25,6 +25,16 @@
     flex-wrap: wrap;
 }
 
-#left-pane, #rest-pane {
+#left-pane {
     height: calc(100% - var(--breeze-toolbar-height)) !important;
+    align-self: end;
+}
+
+#rest-pane {
+    height: calc(100% - var(--breeze-toolbar-height));
+    align-self: end;
+}
+
+.zen #rest-pane {
+    height: 100% !important;
 }
